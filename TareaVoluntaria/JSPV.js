@@ -11,6 +11,28 @@ window.onload = function () {
         [".",".",".",".",".",".",".","."]
     ];
 
+    //Definimos la variables para posicionar al prota
+    var posiportaactual1 = 0;
+    var posiportaactual2 = 0;
+
+    matriz[posiportaactual1][posiportaactual2] = "o";
+
+    //Definimos los números aleatorios para paccionar al malo
+    var aleJaime1 = parseInt(Math.random() * (7 - 1) + 1); 
+    var aleJaime2 = parseInt(Math.random() * (7 - 1) + 1); 
+
+    matriz[aleJaime1][aleJaime2] = "x";
+
+    //Definimos los números aleatorios para paccionar los exámenes 
+    var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
+    var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
+
+    matriz[aleexamenes1][aleexamenes1] = "y";
+
+    //Esto es una prueba (no es definitivo)
+    movarribar();
+
+    //Creamos la tabla
     crearTabla(matriz);
 
     function crearTabla(datosTabla) {
@@ -34,30 +56,33 @@ window.onload = function () {
         document.querySelector("body").appendChild(tabla);
     }
 
-    //Cambiar
-    matriz[0][0] = "h";
-    
+    function movarribar() {
+
+      posiportaactual2++;
+    }
+
+
     var Arribar = document.createElement('button'); 
     Arribar.type = 'button'; 
     Arribar.className = 'boton';
     Arribar.innerText = 'Arribar'; 
-    document.body.appendChild(Arribar); 
+    document.querySelector("body").appendChild(Arribar); 
 
     var Izquierda = document.createElement('button'); 
     Izquierda.type = 'button'; 
     Izquierda.className = 'boton';
     Izquierda.innerText = 'Izquierda'; 
-    document.body.appendChild(Izquierda); 
+    document.querySelector("body").appendChild(Izquierda); 
 
     var Derecha = document.createElement('button'); 
     Derecha.type = 'button'; 
     Derecha.className = 'boton';
     Derecha.innerText = 'Derecha'; 
-    document.body.appendChild(Derecha); 
+    document.querySelector("body").appendChild(Derecha); 
 
     var Abajo = document.createElement('button'); 
     Abajo.type = 'button'; 
     Abajo.className = 'boton';
     Abajo.innerText = 'Abajo'; 
-    document.body.appendChild(Abajo); 
+    document.querySelector("body").appendChild(Abajo); 
 }
