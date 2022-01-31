@@ -29,11 +29,12 @@ window.onload = function () {
     var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
     var aleexamenes2 = parseInt(Math.random() * (7 - 1) + 1);
     
-    //Controlamos que no sepisen los examenes y el malo
+    //Controlamos que no se pisen los examenes y el malo
     if (matriz[aleexamenes1][aleexamenes2] != matriz[aleJaime1][aleJaime2]) {
       
       matriz[aleexamenes1][aleexamenes2] = "y";
     }
+    //Si se pisa colocamos los exámenes en esta posición: 
     else{
 
       matriz[7][0] = "y";
