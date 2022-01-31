@@ -11,7 +11,7 @@ window.onload = function () {
         [".",".",".",".",".",".",".","."]
     ];
 
-    
+
     //Definimos la variables para posicionar al prota
     var posiportaactual1 = 0;
     var posiportaactual2 = 0;
@@ -25,13 +25,19 @@ window.onload = function () {
 
     matriz[aleJaime1][aleJaime2] = "x";
 
-
     //Definimos los números aleatorios para posicionar los exámenes 
     var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
-    var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
+    var aleexamenes2 = parseInt(Math.random() * (7 - 1) + 1);
+    
+    //Controlamos que no sepisen los examenes y el malo
+    if (matriz[aleexamenes1][aleexamenes2] != matriz[aleJaime1][aleJaime2]) {
+      
+      matriz[aleexamenes1][aleexamenes2] = "y";
+    }
+    else{
 
-    matriz[aleexamenes1][aleexamenes1] = "y";
-
+      matriz[7][0] = "y";
+    }
 
     //Creamos la tabla
     crearTabla(matriz);
