@@ -1,9 +1,6 @@
 table{
-    display: flex;
-    flex-direction: row;
     border: 2px solid;
-    margin-left: 557px;
-    margin-right: 557px;
+    margin: 0 auto;
 }
 
 table td{
@@ -13,36 +10,47 @@ table td{
     height: 90px;
 }
 
+.botones{
+    text-align: center;
+}
+
+#b1{
+    margin-top: 20px;
+}
+
 .boton{
-    margin-top: 25px;
-    margin-left: 10px;
-    background-color: rgba(10, 10, 155, 0.925);
-    color: white;
+    margin-bottom: 5px;
+    width: 90px;
     font-family: Verdana;
+    text-align: center;
 }
 
-/*Cambio de tamaño para de dispositivos móviles 1*/
-@media only screen and (max-width: 1200px) {
-    
-    table{
-        margin-left: 278px;
-        margin-right: 278px;
+
+/*Cambio de tamaño para de dispositivos móviles*/
+@media only screen and (max-width: 1300px) {                                                                                                                                                      
+
+    table td{
+        height: 80px;
     }
+}
+
+@media only screen and (max-width: 600px) {
 
     table td{
         height: 50px;
     }
 }
 
-/*Cambio de tamaño para de dispositivos móviles 2*/
 @media only screen and (max-width: 500px) {
-    
-    table{
-        margin-left: 0;
-        margin-right: 0;
-    }
 
     table td{
-        height: 50px;
+        height: 37px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    
+    table td{
+        height: 25px;
     }
 }

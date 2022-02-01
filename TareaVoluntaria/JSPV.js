@@ -1,82 +1,156 @@
 window.onload = function () {
-
-    var matriz = [
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."]
-    ];
-
-
-    //Definimos la variables para posicionar al prota
-    var posiportaactual1 = 0;
-    var posiportaactual2 = 0;
-
-    matriz[posiportaactual1][posiportaactual2] = "o";
-
-
-    //Definimos los números aleatorios para posicionar al malo
-    var aleJaime1 = parseInt(Math.random() * (7 - 1) + 1); 
-    var aleJaime2 = parseInt(Math.random() * (7 - 1) + 1); 
-
-    matriz[aleJaime1][aleJaime2] = "x";
-
-    //Definimos los números aleatorios para posicionar los exámenes 
-    var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
-    var aleexamenes2 = parseInt(Math.random() * (7 - 1) + 1);
     
-    //Controlamos que no se pisen los examenes y el malo
-    if (matriz[aleexamenes1][aleexamenes2] != matriz[aleJaime1][aleJaime2]) {
-      
-      matriz[aleexamenes1][aleexamenes2] = "y";
-    }
-    //Si se pisa colocamos los exámenes en esta posición: 
-    else{
+  var matriz = [
+      [".",".",".",".",".",".",".","."],
+      [".",".",".",".",".",".",".","."],
+      [".",".",".",".",".",".",".","."],
+      [".",".",".",".",".",".",".","."],
+      [".",".",".",".",".",".",".","."],
+      [".",".",".",".",".",".",".","."],
+      [".",".",".",".",".",".",".","."],
+      [".",".",".",".",".",".",".","."]
+  ];
+  
 
-      matriz[7][0] = "y";
-    }
+  //Definimos la variables para posicionar al prota
+  var posiportaactual1 = 0;
+  var posiportaactual2 = 0;
 
-    //Creamos la tabla
-    crearTabla(matriz);
+  matriz[posiportaactual1][posiportaactual2] = "o";
 
-    function crearTabla(datosTabla) {
 
-        var tabla = document.createElement('table');
-        var cuerpoTabla = document.createElement('tbody');
-      
-        datosTabla.forEach(function(datosFilas) {
-          fila = document.createElement('tr');
+  //Definimos los números aleatorios para posicionar al malo
+  var aleJaime1 = parseInt(Math.random() * (7 - 1) + 1); 
+  var aleJaime2 = parseInt(Math.random() * (7 - 1) + 1); 
 
-          datosFilas.forEach(function(datosCeldas) {
-            var celda = document.createElement('td');
-            celda.appendChild(document.createTextNode(datosCeldas));
-            fila.appendChild(celda);
-          });
-      
-          cuerpoTabla.appendChild(fila);
+  matriz[aleJaime1][aleJaime2] = "x";
+
+  //Definimos los números aleatorios para posicionar los exámenes 
+  var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
+  var aleexamenes2 = parseInt(Math.random() * (7 - 1) + 1);
+  
+  //Controlamos que no se pisen los examenes y el malo
+  if (matriz[aleexamenes1][aleexamenes2] != matriz[aleJaime1][aleJaime2]) {
+    
+    matriz[aleexamenes1][aleexamenes2] = "y";
+  }
+  //Si se pisa colocamos los exámenes en esta posición: 
+  else{
+
+    matriz[7][0] = "y";
+  }
+
+  //Creamos la tabla
+  crearTabla(matriz);
+
+  function crearTabla(datosTabla) {
+
+      var tabla = document.createElement('table');
+      var cuerpoTabla = document.createElement('tbody');
+    
+      datosTabla.forEach(function(datosFilas) {
+        fila = document.createElement('tr');
+
+        datosFilas.forEach(function(datosCeldas) {
+          var celda = document.createElement('td');
+          celda.appendChild(document.createTextNode(datosCeldas));
+          fila.appendChild(celda);
         });
-      
-        tabla.appendChild(cuerpoTabla);
-
-        document.querySelector("div").appendChild(tabla);
-    }
     
+        cuerpoTabla.appendChild(fila);
+      });
+    
+      tabla.appendChild(cuerpoTabla);
 
-    //Seleccionamos los botones
-    var botones = document.querySelectorAll("button");
+      document.querySelector("div").appendChild(tabla);
+  }
+  
 
-    //Boton arriba
-    botones[0].onclick = function() {
+  //Seleccionamos los botones
+  var botones = document.querySelectorAll("button");
 
-      if(posiportaactual1 != 0){
+  //Boton arriba
+  botones[0].onclick = function() {
 
-        matriz[posiportaactual1][posiportaactual2] = ".";
-        posiportaactual1--;
-        matriz[posiportaactual1][posiportaactual2] = "o";
+    if(posiportaactual1 != 0){
+
+      matriz[posiportaactual1][posiportaactual2] = ".";
+      posiportaactual1--;
+      matriz[posiportaactual1][posiportaactual2] = "o";
+
+      var tabla = document.querySelector("table");
+      document.querySelector("div").removeChild(tabla);
+
+      crearTabla(matriz);
+      jaime(1);
+    }
+  }
+
+
+  //Boton izquierda
+  botones[1].onclick = function() {
+
+    if (posiportaactual2 != 0) {
+      
+      matriz[posiportaactual1][posiportaactual2] = ".";
+      posiportaactual2--;
+      matriz[posiportaactual1][posiportaactual2] = "o";
+
+      var tabla = document.querySelector("table");
+      document.querySelector("div").removeChild(tabla);
+
+      crearTabla(matriz);
+      jaime(2);
+    }
+  }
+
+
+  //Boton derecha
+  botones[2].onclick = function() {
+
+    if (posiportaactual2 != 7) {
+
+      matriz[posiportaactual1][posiportaactual2] = ".";
+      posiportaactual2++;
+      matriz[posiportaactual1][posiportaactual2] = "o";
+
+      var tabla = document.querySelector("table");
+      document.querySelector("div").removeChild(tabla);
+
+      crearTabla(matriz);
+      jaime(3);
+    }
+  }
+
+
+  //Boton abajo
+  botones[3].onclick = function() {
+
+    if(posiportaactual1 != 7){
+
+      matriz[posiportaactual1][posiportaactual2] = ".";
+      posiportaactual1++;
+      matriz[posiportaactual1][posiportaactual2] = "o";
+
+      var tabla = document.querySelector("table");
+      document.querySelector("div").removeChild(tabla);
+
+      crearTabla(matriz);
+      jaime(0);
+    }
+  }
+
+
+
+  function jaime(e){
+    
+    //arriba
+    if(e==0){
+      if(aleJaime1 != 0){
+
+        matriz[aleJaime1][aleJaime2] = ".";
+        aleJaime1--;
+        matriz[aleJaime1][aleJaime2] = "x";
   
         var tabla = document.querySelector("table");
         document.querySelector("div").removeChild(tabla);
@@ -86,14 +160,29 @@ window.onload = function () {
     }
 
 
-    //Boton izquierda
-    botones[1].onclick = function() {
-
-      if (posiportaactual2 != 0) {
+    //izquierda
+    else if(e==1){
+      if (aleJaime2 != 0) {
         
-        matriz[posiportaactual1][posiportaactual2] = ".";
-        posiportaactual2--;
-        matriz[posiportaactual1][posiportaactual2] = "o";
+        matriz[aleJaime1][aleJaime2] = ".";
+        aleJaime2--;
+        matriz[aleJaime1][aleJaime2] = "x";
+  
+        var tabla = document.querySelector("table");
+        document.querySelector("div").removeChild(tabla);
+  
+        crearTabla(matriz);
+      }
+    }
+      
+
+    //derecha
+    else if(e==2){
+      if (aleJaime2 != 7) {
+
+        matriz[aleJaime1][aleJaime2] = ".";
+        aleJaime2++;
+        matriz[aleJaime1][aleJaime2] = "x";
   
         var tabla = document.querySelector("table");
         document.querySelector("div").removeChild(tabla);
@@ -103,14 +192,13 @@ window.onload = function () {
     }
 
 
-    //Boton derecha
-    botones[2].onclick = function() {
+    //abajo
+    else{
+      if(aleJaime1 != 7){
 
-      if (posiportaactual2 != 7) {
-
-        matriz[posiportaactual1][posiportaactual2] = ".";
-        posiportaactual2++;
-        matriz[posiportaactual1][posiportaactual2] = "o";
+        matriz[aleJaime1][aleJaime2] = ".";
+        aleJaime1++;
+        matriz[aleJaime1][aleJaime2] = "x";
   
         var tabla = document.querySelector("table");
         document.querySelector("div").removeChild(tabla);
@@ -118,21 +206,9 @@ window.onload = function () {
         crearTabla(matriz);
       }
     }
-
-
-    //Boton abajo
-    botones[3].onclick = function() {
-
-      if(posiportaactual1 != 7){
-
-        matriz[posiportaactual1][posiportaactual2] = ".";
-        posiportaactual1++;
-        matriz[posiportaactual1][posiportaactual2] = "o";
-  
-        var tabla = document.querySelector("table");
-        document.querySelector("div").removeChild(tabla);
-  
-        crearTabla(matriz);
-      }
-    }
+  }
 }
+
+
+
+
