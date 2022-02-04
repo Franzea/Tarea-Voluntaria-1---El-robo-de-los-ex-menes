@@ -29,7 +29,7 @@ window.onload = function () {
   var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
   var aleexamenes2 = parseInt(Math.random() * (7 - 1) + 1);
   
-  //Controlamos que no se pisen los examenes y el maloaleexamenes1
+  //Controlamos que no se pisen los examenes y el malo
   if (matriz[aleexamenes1][aleexamenes2] != matriz[aleJaime1][aleJaime2]) {
     
     matriz[aleexamenes1][aleexamenes2] = "y";
@@ -172,6 +172,7 @@ window.onload = function () {
     if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
 
       alert("examenes recogidos");
+
     }
 
     if (matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) {
@@ -186,69 +187,85 @@ window.onload = function () {
     
     if (matriz[aleJaime1][aleJaime2] != matriz[posiportaactual1][posiportaactual2]) {
 
-      //arriba
-      if(e==0){
-        if(aleJaime1 != 0){
+        //arriba
+        if(e==0){
 
-          matriz[aleJaime1][aleJaime2] = ".";
-          aleJaime1--;
-          matriz[aleJaime1][aleJaime2] = "x";
-    
-          var tabla = document.querySelector("table");
-          document.querySelector("div").removeChild(tabla);
-    
-          crearTabla(matriz);
-        }
-      }
+          if (matriz[aleJaime1][aleJaime2] != matriz[aleexamenes1][aleexamenes2]) {
 
+            if(aleJaime1 != 0){
 
-      //izquierda
-      else if(e==1){
-        if (aleJaime2 != 0) {
-          
-          matriz[aleJaime1][aleJaime2] = ".";
-          aleJaime2--;
-          matriz[aleJaime1][aleJaime2] = "x";
-    
-          var tabla = document.querySelector("table");
-          document.querySelector("div").removeChild(tabla);
-    
-          crearTabla(matriz);
-        }
-      }
+              matriz[aleJaime1][aleJaime2] = ".";
+              aleJaime1--;
+              matriz[aleJaime1][aleJaime2] = "x";
         
-
-      //derecha
-      else if(e==2){
-        if (aleJaime2 != 7) {
-
-          matriz[aleJaime1][aleJaime2] = ".";
-          aleJaime2++;
-          matriz[aleJaime1][aleJaime2] = "x";
-    
-          var tabla = document.querySelector("table");
-          document.querySelector("div").removeChild(tabla);
-    
-          crearTabla(matriz);
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
         }
-      }
 
 
-      //abajo
-      else{
-        if(aleJaime1 != 7){
+        //izquierda
+        else if(e==1){
 
-          matriz[aleJaime1][aleJaime2] = ".";
-          aleJaime1++;
-          matriz[aleJaime1][aleJaime2] = "x";
-    
-          var tabla = document.querySelector("table");
-          document.querySelector("div").removeChild(tabla);
-    
-          crearTabla(matriz);
+          if (matriz[aleJaime1][aleJaime2] != matriz[aleexamenes1][aleexamenes2]) {
+
+            if (aleJaime2 != 0) {
+              
+              matriz[aleJaime1][aleJaime2] = ".";
+              aleJaime2--;
+              matriz[aleJaime1][aleJaime2] = "x";
+        
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
         }
-      }
+          
 
+        //derecha
+        else if(e==2){
+
+          if (matriz[aleJaime1][aleJaime2] != matriz[aleexamenes1][aleexamenes2]) {
+
+            if (aleJaime2 != 7) {
+
+              matriz[aleJaime1][aleJaime2] = ".";
+              aleJaime2++;
+              matriz[aleJaime1][aleJaime2] = "x";
+        
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
+        }
+
+
+        //abajo
+        else{
+          
+          if (matriz[aleJaime1][aleJaime2] != matriz[aleexamenes1][aleexamenes2]) {
+
+            if(aleJaime1 != 7){
+
+              matriz[aleJaime1][aleJaime2] = ".";
+              aleJaime1++;
+              matriz[aleJaime1][aleJaime2] = "x";
+        
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
+        }
+      
     }
 
     else{
@@ -257,7 +274,3 @@ window.onload = function () {
     }
   }
 }
-
-
-
-
