@@ -344,7 +344,7 @@ window.onload = function () {
       var opcion = confirm("¿Quieres volver a jugar?");
       if (opcion == true) {
           
-        location.href = "PANTALLA-CARGA.html";
+        location.href = "Pantalla_carga.html";
       } 
       else {
 
