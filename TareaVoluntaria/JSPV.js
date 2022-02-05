@@ -68,6 +68,7 @@ window.onload = function () {
 
   //Seleccionamos los botones
   var botones = document.querySelectorAll("button");
+  var examnesrecogidos = false;
 
   //Boton arriba
   botones[0].onclick = function() {
@@ -87,12 +88,15 @@ window.onload = function () {
 
     if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
 
-      alert("examenes recogidos");
+      examnesrecogidos = true;
+      alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+      document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
-      alert("escapaste");
+      alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
+      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
     }
   }
 
@@ -115,12 +119,15 @@ window.onload = function () {
 
     if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
 
-      alert("examenes recogidos");
+      examnesrecogidos = true;
+      alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+      document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
-      alert("escapaste");
+      alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
+      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
     }
   }
 
@@ -143,12 +150,15 @@ window.onload = function () {
 
     if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
 
-      alert("examenes recogidos");
+      examnesrecogidos = true;
+      alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+      document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
-      alert("escapaste");
+      alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
+      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
     }
   }
 
@@ -171,13 +181,15 @@ window.onload = function () {
 
     if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
 
-      alert("examenes recogidos");
-
+      examnesrecogidos = true;
+      alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+      document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
-      alert("escapaste");
+      alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
+      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
     }
   }
 
@@ -195,6 +207,20 @@ window.onload = function () {
             if(aleJaime1 != 0){
 
               matriz[aleJaime1][aleJaime2] = ".";
+              aleJaime1--;
+              matriz[aleJaime1][aleJaime2] = "x";
+        
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
+          else{
+
+            if(aleJaime1 != 0){
+
+              matriz[aleJaime1][aleJaime2] = "y";
               aleJaime1--;
               matriz[aleJaime1][aleJaime2] = "x";
         
@@ -224,6 +250,20 @@ window.onload = function () {
               crearTabla(matriz);
             }
           }
+          else{
+
+            if (aleJaime2 != 0) {
+              
+              matriz[aleJaime1][aleJaime2] = "y";
+              aleJaime2--;
+              matriz[aleJaime1][aleJaime2] = "x";
+        
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
         }
           
 
@@ -235,6 +275,20 @@ window.onload = function () {
             if (aleJaime2 != 7) {
 
               matriz[aleJaime1][aleJaime2] = ".";
+              aleJaime2++;
+              matriz[aleJaime1][aleJaime2] = "x";
+        
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
+          else{
+
+            if (aleJaime2 != 7) {
+
+              matriz[aleJaime1][aleJaime2] = "y";
               aleJaime2++;
               matriz[aleJaime1][aleJaime2] = "x";
         
@@ -264,13 +318,38 @@ window.onload = function () {
               crearTabla(matriz);
             }
           }
+          else{
+
+            if(aleJaime1 != 7){
+
+              matriz[aleJaime1][aleJaime2] = "y";
+              aleJaime1++;
+              matriz[aleJaime1][aleJaime2] = "x";
+        
+              var tabla = document.querySelector("table");
+              document.querySelector("div").removeChild(tabla);
+        
+              crearTabla(matriz);
+            }
+          }
         }
       
     }
 
     else{
 
-      alert("perdiste");
+      alert("Perdiste, Jaime a pillado a Robert. \n\n Robert: Mierda aaaaaaaaa \n\n Jaime: Te pille  Muahahahahahaha!! (lease con entonación de risa malévola).");
+      alert("El malvado Jaime Hormiga atrapa a Robert y le obliga a recibir clases de PHP en inglés con Araceli. Muahahahahahaha!! (lease con entonación de risa malévola).");
+
+      var opcion = confirm("¿Quieres volver a jugar?");
+      if (opcion == true) {
+          
+        location.href = "PANTALLA-CARGA.html";
+      } 
+      else {
+
+        location.href = "Despedida.html";
+      }
     }
   }
 }

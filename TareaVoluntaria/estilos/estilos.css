@@ -1,0 +1,98 @@
+body{
+    background-image: url('../imagenes/Castillo.png');
+}
+
+header{
+    position: fixed;
+    border: 2px solid white;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    width: 300px;
+    height: 75px;
+    font-family: "Courier New",monoespace;
+    font-size: 1.3em;
+    opacity: 0.7;
+}
+
+span{
+    color: black;
+}
+
+table{
+    margin: 0 auto;
+}
+
+table td{
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    color: black;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.botones{
+    text-align: center;
+}
+
+#b1{
+    margin-top: 20px;
+}
+
+.boton{
+    margin-bottom: 5px;
+    width: 110px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-family: "Courier New",monoespace;
+    font-size: 1em;
+    text-align: center;
+}
+
+/*Cambio de tamaño para otros dispositivos*/
+@media only screen and (max-width: 1300px) {       
+
+    header{
+        position: relative;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    table td{
+        height: 80px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    table td{
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    table td{
+        height: 37px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    
+    table td{
+        height: 25px;
+    }
+}
+
+@media only screen and (max-height: 900px) {
+    
+    table td{
+        width: 70px;
+        height: 70px;
+    }
+}
