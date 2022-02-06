@@ -16,14 +16,14 @@ window.onload = function () {
   var posiportaactual1 = 0;
   var posiportaactual2 = 0;
 
-  matriz[posiportaactual1][posiportaactual2] = "o";
+  matriz[posiportaactual1][posiportaactual2] = "Robert";
 
 
   //Definimos los números aleatorios para posicionar al malo
   var aleJaime1 = parseInt(Math.random() * (7 - 1) + 1); 
   var aleJaime2 = parseInt(Math.random() * (7 - 1) + 1); 
 
-  matriz[aleJaime1][aleJaime2] = "x";
+  matriz[aleJaime1][aleJaime2] = "Jaime";
 
   //Definimos los números aleatorios para posicionar los exámenes 
   var aleexamenes1 = parseInt(Math.random() * (7 - 1) + 1); 
@@ -32,7 +32,7 @@ window.onload = function () {
   //Controlamos que no se pisen los examenes y el malo
   if (matriz[aleexamenes1][aleexamenes2] != matriz[aleJaime1][aleJaime2]) {
     
-    matriz[aleexamenes1][aleexamenes2] = "y";
+    matriz[aleexamenes1][aleexamenes2] = "Examenes";
   }
   //Si se pisa colocamos los exámenes en esta posición: 
   else{
@@ -77,7 +77,7 @@ window.onload = function () {
 
       matriz[posiportaactual1][posiportaactual2] = ".";
       posiportaactual1--;
-      matriz[posiportaactual1][posiportaactual2] = "o";
+      matriz[posiportaactual1][posiportaactual2] = "Robert";
 
       var tabla = document.querySelector("table");
       document.querySelector("div").removeChild(tabla);
@@ -86,17 +86,32 @@ window.onload = function () {
       jaime(1);
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)) {
 
       examnesrecogidos = true;
-      alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
-      document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
-    }
 
+      alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+      
+      document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
+
+      var salida = document.querySelectorAll("td");
+      salida[salida.length-1].style.backgroundColor = 'red';
+    }
+    
     if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
       alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
       alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
+    
+      var opcion = confirm("¿Quieres volver a jugar?");
+      if (opcion == true) {
+          
+        location.href = "Pantalla_carga.html";
+      } 
+      else {
+
+        location.href = "Despedida.html";
+      }
     }
   }
 
@@ -108,7 +123,7 @@ window.onload = function () {
       
       matriz[posiportaactual1][posiportaactual2] = ".";
       posiportaactual2--;
-      matriz[posiportaactual1][posiportaactual2] = "o";
+      matriz[posiportaactual1][posiportaactual2] = "Robert";
 
       var tabla = document.querySelector("table");
       document.querySelector("div").removeChild(tabla);
@@ -117,17 +132,32 @@ window.onload = function () {
       jaime(2);
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)) {
 
       examnesrecogidos = true;
+
       alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+      
       document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
+
+      var salida = document.querySelectorAll("td");
+      salida[salida.length-1].style.backgroundColor = 'red';
     }
 
     if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
       alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
-      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
+      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. \n\n Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. \n\n Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
+      
+      var opcion = confirm("¿Quieres volver a jugar?");
+      if (opcion == true) {
+          
+        location.href = "Pantalla_carga.html";
+      } 
+      else {
+
+        location.href = "Despedida.html";
+      }
     }
   }
 
@@ -139,7 +169,7 @@ window.onload = function () {
 
       matriz[posiportaactual1][posiportaactual2] = ".";
       posiportaactual2++;
-      matriz[posiportaactual1][posiportaactual2] = "o";
+      matriz[posiportaactual1][posiportaactual2] = "Robert";
 
       var tabla = document.querySelector("table");
       document.querySelector("div").removeChild(tabla);
@@ -148,17 +178,32 @@ window.onload = function () {
       jaime(3);
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)) {
 
       examnesrecogidos = true;
+
       alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+      
       document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
+
+      var salida = document.querySelectorAll("td");
+      salida[salida.length-1].style.backgroundColor = 'red';
     }
 
     if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
       alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
-      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
+      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. \n\n Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. \n\n Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
+      
+      var opcion = confirm("¿Quieres volver a jugar?");
+      if (opcion == true) {
+          
+        location.href = "Pantalla_carga.html";
+      } 
+      else {
+
+        location.href = "Despedida.html";
+      }
     }
   }
 
@@ -170,7 +215,7 @@ window.onload = function () {
 
       matriz[posiportaactual1][posiportaactual2] = ".";
       posiportaactual1++;
-      matriz[posiportaactual1][posiportaactual2] = "o";
+      matriz[posiportaactual1][posiportaactual2] = "Robert";
 
       var tabla = document.querySelector("table");
       document.querySelector("div").removeChild(tabla);
@@ -179,17 +224,32 @@ window.onload = function () {
       jaime(0);
     }
 
-    if (matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) {
+    if ((matriz[posiportaactual1][posiportaactual2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)) {
 
       examnesrecogidos = true;
+
       alert("Exámenes recogidos.\n\n Robet: Toma esa mostri. \n\n Jaime: Ya te pillare!!!!!!.");
+
       document.querySelectorAll("span")[1].textContent="Exámenes Recogidos: SI";
+
+      var salida = document.querySelectorAll("td");
+      salida[salida.length-1].style.backgroundColor = 'red';  
     }
 
     if ((matriz[posiportaactual1][posiportaactual2] == matriz[7][7]) && (examnesrecogidos == true)) {
 
       alert("Ganaste, has ayudado a Robert a escapar con los exámenes.");
-      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
+      alert("Robert se sale con la suya y roba los exámenes finales del ciclo. \n\n Se hace rico vendiéndolos a sus compañeros pero se gasta “su fortuna” en skins del Fortnite y en intentar quitarle lanovia a illojuan. \n\n Al final no le queda dinero para ir a Howards y se hace cantante de series de anime.");
+
+      var opcion = confirm("¿Quieres volver a jugar?");
+      if (opcion == true) {
+          
+        location.href = "Pantalla_carga.html";
+      } 
+      else {
+
+        location.href = "Despedida.html";
+      }
     }
   }
 
@@ -208,7 +268,7 @@ window.onload = function () {
 
               matriz[aleJaime1][aleJaime2] = ".";
               aleJaime1--;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -216,13 +276,13 @@ window.onload = function () {
               crearTabla(matriz);
             }
           }
-          else{
+          else if ((matriz[aleJaime1][aleJaime2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)){
 
             if(aleJaime1 != 0){
 
-              matriz[aleJaime1][aleJaime2] = "y";
+              matriz[aleJaime1][aleJaime2] = "Examenes";
               aleJaime1--;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -242,7 +302,7 @@ window.onload = function () {
               
               matriz[aleJaime1][aleJaime2] = ".";
               aleJaime2--;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -250,13 +310,13 @@ window.onload = function () {
               crearTabla(matriz);
             }
           }
-          else{
+          else if ((matriz[aleJaime1][aleJaime2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)){
 
             if (aleJaime2 != 0) {
               
-              matriz[aleJaime1][aleJaime2] = "y";
+              matriz[aleJaime1][aleJaime2] = "Examenes";
               aleJaime2--;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -276,7 +336,7 @@ window.onload = function () {
 
               matriz[aleJaime1][aleJaime2] = ".";
               aleJaime2++;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -284,13 +344,13 @@ window.onload = function () {
               crearTabla(matriz);
             }
           }
-          else{
+          else if ((matriz[aleJaime1][aleJaime2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)){
 
             if (aleJaime2 != 7) {
 
-              matriz[aleJaime1][aleJaime2] = "y";
+              matriz[aleJaime1][aleJaime2] = "Examenes";
               aleJaime2++;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -310,7 +370,7 @@ window.onload = function () {
 
               matriz[aleJaime1][aleJaime2] = ".";
               aleJaime1++;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -318,13 +378,13 @@ window.onload = function () {
               crearTabla(matriz);
             }
           }
-          else{
+          else if ((matriz[aleJaime1][aleJaime2] == matriz[aleexamenes1][aleexamenes2]) && (examnesrecogidos == false)){
 
             if(aleJaime1 != 7){
 
-              matriz[aleJaime1][aleJaime2] = "y";
+              matriz[aleJaime1][aleJaime2] = "Examenes";
               aleJaime1++;
-              matriz[aleJaime1][aleJaime2] = "x";
+              matriz[aleJaime1][aleJaime2] = "Jaime";
         
               var tabla = document.querySelector("table");
               document.querySelector("div").removeChild(tabla);
@@ -339,7 +399,7 @@ window.onload = function () {
     else{
 
       alert("Perdiste, Jaime a pillado a Robert. \n\n Robert: Mierda aaaaaaaaa \n\n Jaime: Te pille  Muahahahahahaha!! (lease con entonación de risa malévola).");
-      alert("El malvado Jaime Hormiga atrapa a Robert y le obliga a recibir clases de PHP en inglés con Araceli. Muahahahahahaha!! (lease con entonación de risa malévola).");
+      alert("El malvado Jaime Hormiga atrapa a Robert y le obliga a recibir clases de PHP en inglés con Araceli. \n\n Muahahahahahaha!! (lease con entonación de risa malévola).");
 
       var opcion = confirm("¿Quieres volver a jugar?");
       if (opcion == true) {
